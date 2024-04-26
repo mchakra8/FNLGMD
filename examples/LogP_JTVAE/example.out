@@ -1,36 +1,474 @@
-fsitgl-hpc010p
-/mnt/projects/ATOM/blackst/FNLGMD/source
+fsitgl-hpc101p
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD
 Before
-Pre-imports
-Outside functions
-THIS IS A TEST: Commented out decoder AND optimizer call in gen_net.py optimize
-Before parser
-args:  Namespace(compound_count=0, config=['/mnt/projects/ATOM/blackst/FNLGMD/workspace/example_dir/config.yaml'], gene_mutate_prob=0.1, ind_mutate_prob=0.1, mate_prob=0.3, max_clones=1, max_population=0, memetic_delta=1, memetic_delta_scale=1, memetic_frac=0.4, memetic_size=25, model_path='/mnt/projects/ATOM/blackst/GMD/LOGP-JTVAE-PAPER/Train/MODEL-TRAIN/model.epoch-35', model_type='jtnn-fnl', mutate_std=1, num_epochs=1, optimization='minimize', optimizer_type='geneticoptimizer', output_directory='/mnt/projects/ATOM/blackst/FNLGMD/workspace/example_dir/', scorer_type='FNL', selection_type='tournament', smiles_input_file='/mnt/projects/ATOM/blackst/GMD/LOGP-JTVAE-PAPER/Raw-Data/ZINC/all.txt', tourn_size=25, verbose='True', vocab_path='/mnt/projects/ATOM/blackst/GMD/LOGP-JTVAE-PAPER/Vocabulary/all_vocab.txt')
 classes initialized
-50  compounds in the df
 population initialized
 Population evaluated
 epoch #0
-Inside loop
-Entering optimizing
-Encoding
+Encoding  50  molecules
 1  batches of smiles
-1
-encoded returned
-Encoding computation time, Total time = 1, 1 seconds
-<class 'numpy.ndarray'>
-<class 'numpy.ndarray'>
+Encoding took  4.657632827758789  seconds
 Optimizing
-latent_optimizer population_size: 50, latent_cost_df size: 50, retained_df size: 0, target population size: 249456
-After optimization, population columns are compound_id, smiles, latent, cost, parent1_id, parent2_id
-After optimization: retained population 13, total population 74855
-Decoding  74855  molecules
-Traceback (most recent call last):
-  File "/mnt/projects/ATOM/blackst/FNLGMD/source/main.py", line 73, in <module>
-    main()
-  File "/mnt/projects/ATOM/blackst/FNLGMD/source/main.py", line 57, in main
-    population = generative_model.optimize(population) #TEMP COMMENT
-  File "/mnt/projects/ATOM/blackst/FNLGMD/source/generative_network.py", line 183, in optimize
-    assert len(smiles) == len(latent)
-AssertionError
+Population_size after selection  35
+Crossover beginning population size:  35
+Number of children:  35  length of total population:  70
+Decoding  70  molecules
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:115: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['parent1_id'].iloc[idx] = population['compound_id'].iloc[idx]
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:116: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['parent2_id'].iloc[idx] = np.nan
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:117: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['smiles'].iloc[idx] = np.nan
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:118: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['fitness'].iloc[idx] = np.nan
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:119: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['compound_id'].iloc[idx] = np.nan
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:121: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['chromosome'].iloc[idx] = chromosome
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:115: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['parent1_id'].iloc[idx] = population['compound_id'].iloc[idx]
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:116: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['parent2_id'].iloc[idx] = np.nan
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:117: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['smiles'].iloc[idx] = np.nan
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:118: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['fitness'].iloc[idx] = np.nan
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:119: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['compound_id'].iloc[idx] = np.nan
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:121: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['chromosome'].iloc[idx] = chromosome
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:115: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['parent1_id'].iloc[idx] = population['compound_id'].iloc[idx]
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:116: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['parent2_id'].iloc[idx] = np.nan
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:117: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['smiles'].iloc[idx] = np.nan
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:118: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['fitness'].iloc[idx] = np.nan
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:119: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['compound_id'].iloc[idx] = np.nan
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:121: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['chromosome'].iloc[idx] = chromosome
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:115: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['parent1_id'].iloc[idx] = population['compound_id'].iloc[idx]
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:116: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['parent2_id'].iloc[idx] = np.nan
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:117: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['smiles'].iloc[idx] = np.nan
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:118: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['fitness'].iloc[idx] = np.nan
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:119: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['compound_id'].iloc[idx] = np.nan
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:121: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['chromosome'].iloc[idx] = chromosome
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:115: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['parent1_id'].iloc[idx] = population['compound_id'].iloc[idx]
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:116: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['parent2_id'].iloc[idx] = np.nan
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:117: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['smiles'].iloc[idx] = np.nan
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:118: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['fitness'].iloc[idx] = np.nan
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:119: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['compound_id'].iloc[idx] = np.nan
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:121: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['chromosome'].iloc[idx] = chromosome
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:115: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['parent1_id'].iloc[idx] = population['compound_id'].iloc[idx]
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:116: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['parent2_id'].iloc[idx] = np.nan
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:117: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['smiles'].iloc[idx] = np.nan
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:118: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['fitness'].iloc[idx] = np.nan
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:119: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['compound_id'].iloc[idx] = np.nan
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:121: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['chromosome'].iloc[idx] = chromosome
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:115: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['parent1_id'].iloc[idx] = population['compound_id'].iloc[idx]
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:116: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['parent2_id'].iloc[idx] = np.nan
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:117: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['smiles'].iloc[idx] = np.nan
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:118: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['fitness'].iloc[idx] = np.nan
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:119: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['compound_id'].iloc[idx] = np.nan
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:121: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['chromosome'].iloc[idx] = chromosome
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:115: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['parent1_id'].iloc[idx] = population['compound_id'].iloc[idx]
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:116: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['parent2_id'].iloc[idx] = np.nan
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:117: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['smiles'].iloc[idx] = np.nan
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:118: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['fitness'].iloc[idx] = np.nan
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:119: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['compound_id'].iloc[idx] = np.nan
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:121: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['chromosome'].iloc[idx] = chromosome
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:115: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['parent1_id'].iloc[idx] = population['compound_id'].iloc[idx]
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:116: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['parent2_id'].iloc[idx] = np.nan
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:117: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['smiles'].iloc[idx] = np.nan
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:118: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['fitness'].iloc[idx] = np.nan
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:119: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['compound_id'].iloc[idx] = np.nan
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:121: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['chromosome'].iloc[idx] = chromosome
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:115: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['parent1_id'].iloc[idx] = population['compound_id'].iloc[idx]
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:116: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['parent2_id'].iloc[idx] = np.nan
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:117: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['smiles'].iloc[idx] = np.nan
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:118: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['fitness'].iloc[idx] = np.nan
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:119: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['compound_id'].iloc[idx] = np.nan
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:121: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['chromosome'].iloc[idx] = chromosome
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:115: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['parent1_id'].iloc[idx] = population['compound_id'].iloc[idx]
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:116: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['parent2_id'].iloc[idx] = np.nan
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:117: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['smiles'].iloc[idx] = np.nan
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:118: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['fitness'].iloc[idx] = np.nan
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:119: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['compound_id'].iloc[idx] = np.nan
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:121: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['chromosome'].iloc[idx] = chromosome
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:115: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['parent1_id'].iloc[idx] = population['compound_id'].iloc[idx]
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:116: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['parent2_id'].iloc[idx] = np.nan
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:117: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['smiles'].iloc[idx] = np.nan
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:118: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['fitness'].iloc[idx] = np.nan
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:119: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['compound_id'].iloc[idx] = np.nan
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:121: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['chromosome'].iloc[idx] = chromosome
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:121: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['chromosome'].iloc[idx] = chromosome
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:121: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['chromosome'].iloc[idx] = chromosome
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:121: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['chromosome'].iloc[idx] = chromosome
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:121: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['chromosome'].iloc[idx] = chromosome
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:121: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['chromosome'].iloc[idx] = chromosome
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:121: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['chromosome'].iloc[idx] = chromosome
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:121: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['chromosome'].iloc[idx] = chromosome
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:121: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['chromosome'].iloc[idx] = chromosome
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:121: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['chromosome'].iloc[idx] = chromosome
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:121: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['chromosome'].iloc[idx] = chromosome
+/mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/generative_networks/JTNN.py:121: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  population['chromosome'].iloc[idx] = chromosome
+Decoding took  6.495015621185303  seconds
+epoch #1
+Optimizing
+Population_size after selection  49
+Crossover beginning population size:  49
+Number of children:  35  length of total population:  84
+Decoding  84  molecules
+Decoding took  10.937943696975708  seconds
+epoch #2
+Optimizing
+Population_size after selection  58
+Crossover beginning population size:  58
+Number of children:  35  length of total population:  93
+Decoding  93  molecules
+Decoding took  19.45203399658203  seconds
+epoch #3
+Optimizing
+Population_size after selection  65
+Crossover beginning population size:  65
+Number of children:  35  length of total population:  100
+Decoding  100  molecules
+Decoding took  18.61383581161499  seconds
+epoch #4
+Optimizing
+Population_size after selection  70
+Crossover beginning population size:  70
+Number of children:  35  length of total population:  105
+Decoding  105  molecules
+Decoding took  43.73400545120239  seconds
+     compound_id  ... parent2_id
+0             30  ...        NaN
+1             34  ...        NaN
+2             26  ...        NaN
+3             46  ...        NaN
+4             24  ...        NaN
+..           ...  ...        ...
+100          399  ...      176.0
+101          400  ...      198.0
+102          401  ...      263.0
+103          402  ...       24.0
+104          403  ...      247.0
+
+[452 rows x 7 columns]
 After

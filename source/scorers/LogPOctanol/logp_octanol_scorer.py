@@ -12,7 +12,7 @@ class LogPOctanolWaterPartitionCoef(Scorer):
 
         smiles = population['smiles']
         smiles_rdkit = []
-        for s in smiles:
+        for s in smiles.dropna():
             mol = MolFromSmiles(s)
             smi = MolToSmiles(mol,isomericSmiles=False)
             smiles_rdkit.append(smi)

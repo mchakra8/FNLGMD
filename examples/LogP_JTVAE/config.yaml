@@ -3,13 +3,13 @@ model_type: 'jtnn-fnl'
 smiles_input_file: './examples/LogP_AutoGrow/zinc_smiles.txt'
 output_directory: './examples/LogP_JTVAE/'
 scorer_type: 'LogPTestCase'
-num_epochs: 1
+num_epochs: 5
 
 #Selection/Optimization params
 optimizer_type: 'geneticoptimizer'
-tourn_size: 15
+tourn_size: 30
 mate_prob: 0.7
-mutate_prob: 0.1
+mutate_prob: 0.25
 mutation_std: 1
 max_clones: 1
 optima_type: "maxima"

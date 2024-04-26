@@ -11,7 +11,9 @@ class Tracker():
         self._next_id = 0
         self._smiles_input_file = params.smiles_input_file
         self._output_directory = params.output_directory
+        self._output_filename = params.output_filename
         self.generation = 0
+        self.avg_sea_like_TC = 0
         self._initial_pop_size = params.initial_pop_size
 
         self.master_df = pd.DataFrame()
@@ -26,6 +28,7 @@ class Tracker():
         population = pd.DataFrame()
         population['compound_id'] = comp_ids
         population['smiles'] = smiles_list
+        population['avg_sea_like_TC'] = [0 for _ in range(len(smiles_list))]
         population['generation'] = [[0] for _ in range(len(smiles_list))]
         population['source'] = ['initial' for _ in range(len(smiles_list))]
 
@@ -64,7 +67,7 @@ class Tracker():
         return population
     
     def publish_data(self):
-        self.master_df.to_csv(self._output_directory + "data_all_generations.csv", index=False)
+        self.master_df.to_csv(self._output_directory + self._output_filename, index=False)
         print(self.master_df)
 
 
