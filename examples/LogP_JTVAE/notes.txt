@@ -1,0 +1,5 @@
+On line 16 of /mnt/projects/RAS-CompChem/static/Mayukh/FNLGMD/source/scorers/LogPOctanol/logp_octanol_scorer.py:
+
+The line was changed to the following in order to drop rows containing NaN values:
+
+16	for s in smiles.dropna():
