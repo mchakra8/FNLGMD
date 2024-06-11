@@ -1,23 +1,23 @@
 model_type: 'jtnn-fnl'
 
-smiles_input_file: './examples/LogP_AutoGrow/zinc_smiles.txt'
+smiles_input_file: '/mnt/projects/RAS-CompChem/static/Mayukh/github_repositories/FNLGMD/examples/LogP_JTVAE/zinc_smiles.txt'
 output_directory: './examples/LogP_JTVAE/'
 scorer_type: 'LogPTestCase'
-num_epochs: 5
+num_epochs: 10
 
 #Selection/Optimization params
 optimizer_type: 'geneticoptimizer'
-tourn_size: 30
-mate_prob: 0.7
-mutate_prob: 0.25
-mutation_std: 1
-max_clones: 1
+tourn_size: 25
+#mate_prob: 0.4
+mutate_prob: 0.2
+mutation_std: 0.25 #NEEDS FURTHER REVIEW AND MODIFICATION TO YOUR PROBLEM
+max_clones: 1 #DEPENDS ON HOW MANY COPIES OF ONE MOLECULE YOU WANT. MORE ALLOWS FOR CONVERGENCE, LESS ENCOURAGES DIVERSITY
 optima_type: "maxima"
 selection_type: "tournament"
-elite_perc: 0
+elite_ratio: 0.2 #ELITE POPULATION GUARENTEES THE SURVIVAL OF THE TOP X MOLECULES
 
-initial_pop_size: 50
-max_population: 50
+initial_pop_size: 200
+max_population: 200
 
 #Generative model parameters:
 ##FNL JTVAE specific
