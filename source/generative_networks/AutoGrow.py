@@ -56,12 +56,14 @@ class AutoGrow(GenerativeModel):
         source = ['mutation' for _ in range(len(mutated_df))]
         mutated_df['source'] = source
         mutated_df['generation'] = [[] for _ in range(len(mutated_df))]
+        mutated_df['avg_sea_like_TC'] = [0 for _ in range(len(mutated_df))]
         
         #generate crossover_pop
         crossed_df = self.crossover()
         source = ['crossover' for _ in range(len(crossed_df))]
         crossed_df['source'] = source
         crossed_df['generation'] = [[] for _ in range(len(crossed_df))]
+        crossed_df['avg_sea_like_TC'] = [0 for _ in range(len(crossed_df))]
         
         #generate elite_pop
         elite_df = self.optimizer.select_elite_pop(population, self.num_elite)
