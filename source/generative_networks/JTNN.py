@@ -105,6 +105,8 @@ class JTNN_FNL(GenerativeModel):
             child_chrom.append(child2_chrom)
         
         children_df = pd.DataFrame({"compound_id": np.full(num_children, np.nan), "chromosome": child_chrom, "fitness": np.full(num_children, np.nan), "generation": np.full(num_children, np.nan), "source": np.full(num_children, "crossover"), "parent1_id": parent_1, "parent2_id": parent_2})
+
+        children_df['avg_sea_like_TC'] = [0 for _ in range(num_children)]  #set avg_sea_like_TC to 0 when not using SeaLike Tanimoto scorer
         
         return children_df
     
@@ -131,6 +133,7 @@ class JTNN_FNL(GenerativeModel):
 
                 population['source'].iloc[idx] = "crossover & mutation"
                 population['chromosome'].iloc[idx] = chromosome
+                population['avg_sea_like_TC'].iloc[idx] = 0  #set avg_sea_like_TC to 0 when not using SeaLike Tanimoto scorer
 
         return population
 

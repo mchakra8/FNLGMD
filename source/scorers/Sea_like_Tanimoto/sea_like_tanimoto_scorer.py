@@ -14,6 +14,22 @@ class TanimotoSeaLikeCoef(Scorer):
     def score(self, population):
 
         smiles = population['smiles']
+        indices_to_remove = []
+        smiles_rdkit = []
+        counter = 0
+        for i in range(len(smiles)):
+            try:
+                mol = MolFromSmiles(smiles[i])
+                smi = MolToSmiles(mol,isomericSmiles=False)
+                smiles_rdkit.append(smi)
+            except:
+                indices_to_remove.append(i)
+                counter += 1
+                print("failed: ", smiles[i], " total: ", counter)
+                print(smiles[i])
+
+        '''     
+        smiles = population['smiles']
         smiles_rdkit = []
         for s in smiles:
             if pd.isnull(s):
@@ -21,7 +37,8 @@ class TanimotoSeaLikeCoef(Scorer):
             mol = MolFromSmiles(s)
             smi = MolToSmiles(mol,isomericSmiles=False)
             smiles_rdkit.append(smi)
-        
+        '''    
+
         avg_sea_like_TC_values = []
         smi2_file = "/mnt/projects/RAS-CompChem/static/Mayukh/FNL_JTVAE/pocket/Raw-Data/masterlist_021324_salts_removed_smi.smi"
         threshold = self.params.tc_threshold
@@ -63,6 +80,9 @@ class TanimotoSeaLikeCoef(Scorer):
         cycle_scores_normalized[np.isnan(cycle_scores_normalized)] = 0.0
 
         targets = SA_scores_normalized - avg_sea_like_TC_values_normalized + cycle_scores_normalized
+        if len(indices_to_remove) > 0:
+            population.reset_index(inplace=True, drop=True)
+            population.drop(indices_to_remove, inplace=True)
         population['fitness'] = targets
         population['avg_sea_like_TC'] = avg_sea_like_TC_values
         
