@@ -12,7 +12,6 @@ class Tracker():
         self._smiles_input_file = params.smiles_input_file
         self._output_directory = params.output_directory
         self._output_filename = params.output_filename
-        self._scorer_type = params.scorer_type
         self.generation = 0
         self.avg_sea_like_TC = 0
         self._initial_pop_size = params.initial_pop_size
@@ -88,8 +87,7 @@ class Tracker():
     
     def publish_data(self):
 
-        if self._scorer_type == 'SeaLikeTanimoto':
-            self.master_df.drop_duplicates(subset=['smiles'], keep='first', inplace=True) #prior to publishing final data, drop repeated smiles strings, and only keep the first instance
+        self.master_df.drop_duplicates(subset=['smiles'], keep='first', inplace=True) #prior to publishing final data, drop repeated smiles strings, and only keep the first instance
 
         self.master_df.to_csv(self._output_directory + self._output_filename, index=False)
         print(self.master_df)
