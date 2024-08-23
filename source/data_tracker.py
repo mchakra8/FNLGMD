@@ -26,6 +26,18 @@ class Tracker():
                                                'Number of times this molecule was evolutionarily created (not carried over through elitism)',
                                                'Generation, method this molecule was created, and parent ID numbers'])
 
+        if params.scorer_type == 'SeaLikeTanimoto':
+            self.master_df = pd.DataFrame(columns=['compound_id',
+                                               'smiles',
+                                               'avg_sea_like_TC',
+                                               'First generation in which the molecule appears',
+                                               'Total number of generations molecule is present',
+                                               'List of generations molecule is present',
+                                               'fitness',
+                                               'chromosome',
+                                               'Number of times this molecule was evolutionarily created (not carried over through elitism)',
+                                               'Generation, method this molecule was created, and parent ID numbers'])
+
     def init_population(self):
         with open(self._smiles_input_file) as f: 
             smiles_list = [line.strip("\r\n ").split()[0] for line in f]
@@ -75,7 +87,8 @@ class Tracker():
                 if individual['source'] == 'initial': #Specific to the initial population taken from input file
                     new_row = pd.Series({
                         'compound_id': individual['compound_id'], 
-                        'smiles': individual['smiles'], 
+                        'smiles': individual['smiles'],
+                        'avg_sea_like_TC': individual['avg_sea_like_TC'],
                         'First generation in which the molecule appears': self.generation,
                         'Total number of generations molecule is present': 1,
                         'List of generations molecule is present': [self.generation],
@@ -88,6 +101,7 @@ class Tracker():
                     new_row = pd.Series({
                             'compound_id': self._next_id,
                             'smiles': individual['smiles'],
+                            'avg_sea_like_TC': individual['avg_sea_like_TC'],
                             'First generation in which the molecule appears': self.generation,
                             'Total number of generations molecule is present': 1,
                             'List of generations molecule is present': [self.generation],
