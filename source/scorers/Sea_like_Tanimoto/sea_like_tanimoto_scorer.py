@@ -40,7 +40,7 @@ class TanimotoSeaLikeCoef(Scorer):
         '''    
 
         avg_sea_like_TC_values = []
-        smi2_file = "/mnt/projects/RAS-CompChem/static/Mayukh/FNL_JTVAE/pocket/Raw-Data/masterlist_021324_salts_removed_smi.smi"
+        smi2_file = self.params.tanimoto_similarity_file
         threshold = self.params.tc_threshold
         for i in range(len(smiles_rdkit)):
             TC_sum = sea_like_tanimoto_cal_rdkit.sea_like_calc(smiles_rdkit[i],smi2_file,threshold)[0]
