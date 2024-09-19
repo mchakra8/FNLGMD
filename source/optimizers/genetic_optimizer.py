@@ -86,7 +86,7 @@ class GeneticOptimizer(Optimizer):
                             continue
 
                         else:
-                            self.clone_tracker[last_selected_smiles][selected_ind_smiles] += 1
+                            self.clone_tracker[selected_ind_smiles][last_selected_smiles] += 1
                     else:
                         self.clone_tracker[selected_ind_smiles][last_selected_smiles] = 1
 
