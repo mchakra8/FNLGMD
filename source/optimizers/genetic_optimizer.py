@@ -33,9 +33,12 @@ class GeneticOptimizer(Optimizer):
         fitness_scores = selection_pool['fitness'].tolist()
         min_fit = min(fitness_scores)
         shifted_scores = [score - min_fit for score in fitness_scores]
-
-        total = sum(shifted_scores)
-        normalized_scores = [score / total for score in shifted_scores]
+        
+        if len(shifted_scores) > 1:
+            total = sum(shifted_scores)
+            normalized_scores = [score / total for score in shifted_scores]
+        else:
+            normalized_scores = None
 
         #IN WORK
         return selection_pool.sample(1, weights=normalized_scores).index[0]
